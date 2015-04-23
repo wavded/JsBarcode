@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>JsBarcode</title>
+    <script src="http://localhost:3000/webpack-dev-server.js"></script>
+    <script src="bundle.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Example: Barcode Clock</h1>
+      <img id="clock" />
+
+      <h1>Example: Options</h1>
+      <img id="options" />
+
+      <h1>Encodings</h1>
+
+      <h2>UPC</h2>
+      <img id="upc" />
+      <h2>EAN</h2>
+      <img id="ean" />
+      <h2>ITF</h2>
+      <img id="itf" />
+      <h2>ITF14</h2>
+      <img id="itf14" />
+      <h2>CODE39</h2>
+      <img id="code39" />
+      <h2>CODE128B</h2>
+      <img id="code128b" />
+      <h2>CODE128C</h2>
+      <img id="code128c" />
+      <h2>Pharmacode</h2>
+      <img id="pharmacode" />
+
+      <script>
+        document.getElementById('upc').src =
+          JsBarcode.UPC('123456789999', { displayValue: true })
+
+        document.getElementById('ean').src =
+          JsBarcode.EAN('1234567890128', { displayValue: true })
+
+        document.getElementById('itf').src =
+          JsBarcode.ITF('123456', { displayValue: true })
+
+        document.getElementById('itf14').src =
+          JsBarcode.ITF14('10012345000017', { displayValue: true })
+
+        document.getElementById('code39').src =
+          JsBarcode.CODE39('JSBARCODE', { displayValue: true })
+
+        document.getElementById('code128b').src =
+          JsBarcode.CODE128B('JsBarcode', { displayValue: true })
+
+        document.getElementById('code128c').src =
+          JsBarcode.CODE128C('JcB', { displayValue: true })
+
+        document.getElementById('pharmacode').src =
+          JsBarcode.Pharmacode(1234, { displayValue: true })
+
+        document.getElementById('options').src =
+          JsBarcode.Pharmacode(1234, {
+            displayValue: true,
+            backgroundColor: 'lightblue',
+            lineColor: 'blue',
+            textAlign: 'right',
+            font: 'Arial',
+            fontSize: 14,
+            quite: 50,
+            height: 50,
+            width: 10
+          })
+
+        function renderClock () {
+          var date = new Date()
+          document.getElementById('clock').src =
+            JsBarcode.CODE128B(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(), { displayValue: true })
+        }
+        setInterval(renderClock, 1000)
+        renderClock()
+      </script>
+    </div>
+  </body>
+</html>
