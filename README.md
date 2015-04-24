@@ -50,19 +50,20 @@ Create a new barcode.  Returns a canvas element.
 	*  Pharmacode
  * `code` - the string to encode
  * `opts` - additional formatting, default options are:
-	```js
-	{
-		width:	2,
-		height:	100,
-		quite: 10,
-		displayValue: false,
-		font: 'monospace',
-		textAlign: 'center',
-		fontSize: 12,
-		backgroundColor: '',
-		lineColor: "#000"
-	}
-	```
+ 
+```js
+{
+	width:	2,
+	height:	100,
+	quite: 10,
+	displayValue: false,
+	font: 'monospace',
+	textAlign: 'center',
+	fontSize: 12,
+	backgroundColor: '',
+	lineColor: "#000"
+}
+```
 
 Example on server side:
 
