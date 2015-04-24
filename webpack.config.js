@@ -21,7 +21,7 @@ if (env === 'production') {
 module.exports = {
   devtool: env === 'development' && 'inline-source-map',
   output: {
-    library: 'JsBarcode',
+    library: 'ioBarcode',
     libraryTarget: 'umd'
   },
   module: {

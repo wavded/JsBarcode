@@ -1,9 +1,10 @@
-import JsBarcode from '../'
+import ioBarcode from '../modules'
 import { join } from 'path'
 import fs from 'fs'
 
 let date = new Date()
 let time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+let opts = { displayValue: true }
 
 /**
  * Currently exists an issue in node-canvas on OSX for fonts
@@ -22,11 +23,11 @@ fs.writeFile(join(__dirname, 'server-test.html'), `
     <a href="/">Client Render Test</a>
 
     <h1>Example: Barcode Clock</h1>
-    <img src="${JsBarcode.CODE128B(time, { displayValue: true })}" />
+    <img src="${ioBarcode.CODE128B(time, opts).toDataURL()}" />
 
     <h1>Example: Options</h1>
     <img src="
-      ${JsBarcode.Pharmacode(1234, {
+      ${ioBarcode.Pharmacode(1234, {
         displayValue: true,
         backgroundColor: 'lightblue',
         lineColor: 'blue',
@@ -36,34 +37,34 @@ fs.writeFile(join(__dirname, 'server-test.html'), `
         quite: 50,
         height: 50,
         width: 10
-      })}
+      }).toDataURL()}
     " />
 
     <h1>Encodings</h1>
 
     <h2>UPC</h2>
-    <img src="${JsBarcode.UPC('123456789999', { displayValue: true })}" />
+    <img src="${ioBarcode.UPC('123456789999', opts).toDataURL()}" />
 
     <h2>EAN</h2>
-    <img src="${JsBarcode.EAN('1234567890128', { displayValue: true })}" />
+    <img src="${ioBarcode.EAN('1234567890128', opts).toDataURL()}" />
 
     <h2>ITF</h2>
-    <img src="${JsBarcode.ITF('123456', { displayValue: true })}" />
+    <img src="${ioBarcode.ITF('123456', opts).toDataURL()}" />
 
     <h2>ITF14</h2>
-    <img src="${JsBarcode.ITF14('10012345000017', { displayValue: true })}" />
+    <img src="${ioBarcode.ITF14('10012345000017', opts).toDataURL()}" />
 
     <h2>CODE39</h2>
-    <img src="${JsBarcode.CODE39('JSBARCODE', { displayValue: true })}" />
+    <img src="${ioBarcode.CODE39('JSBARCODE', opts).toDataURL()}" />
 
     <h2>CODE128B</h2>
-    <img src="${JsBarcode.CODE128B('JsBarcode', { displayValue: true })}" />
+    <img src="${ioBarcode.CODE128B('JsBarcode', opts).toDataURL()}" />
 
     <h2>CODE128C</h2>
-    <img src="${JsBarcode.CODE128C('JcB', { displayValue: true })}" />
+    <img src="${ioBarcode.CODE128C('JcB', opts).toDataURL()}" />
 
     <h2>Pharmacode</h2>
-    <img src="${JsBarcode.Pharmacode(1234, { displayValue: true })}" />
+    <img src="${ioBarcode.Pharmacode(1234, opts).toDataURL()}" />
 
   </body>
 </html>

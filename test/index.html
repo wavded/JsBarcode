@@ -3,7 +3,7 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8" />
-    <title>JsBarcode</title>
+    <title>ioBarcode</title>
     <script src="http://localhost:3000/webpack-dev-server.js"></script>
     <script src="bundle.js"></script>
   </head>
@@ -38,31 +38,31 @@
 
       <script>
         document.getElementById('upc').src =
-          JsBarcode.UPC('123456789999', { displayValue: true })
+          ioBarcode.UPC('123456789999', { displayValue: true }).toDataURL()
 
         document.getElementById('ean').src =
-          JsBarcode.EAN('1234567890128', { displayValue: true })
+          ioBarcode.EAN('1234567890128', { displayValue: true }).toDataURL()
 
         document.getElementById('itf').src =
-          JsBarcode.ITF('123456', { displayValue: true })
+          ioBarcode.ITF('123456', { displayValue: true }).toDataURL()
 
         document.getElementById('itf14').src =
-          JsBarcode.ITF14('10012345000017', { displayValue: true })
+          ioBarcode.ITF14('10012345000017', { displayValue: true }).toDataURL()
 
         document.getElementById('code39').src =
-          JsBarcode.CODE39('JSBARCODE', { displayValue: true })
+          ioBarcode.CODE39('JSBARCODE', { displayValue: true }).toDataURL()
 
         document.getElementById('code128b').src =
-          JsBarcode.CODE128B('JsBarcode', { displayValue: true })
+          ioBarcode.CODE128B('ioBarcode', { displayValue: true }).toDataURL()
 
         document.getElementById('code128c').src =
-          JsBarcode.CODE128C('JcB', { displayValue: true })
+          ioBarcode.CODE128C('JcB', { displayValue: true }).toDataURL()
 
         document.getElementById('pharmacode').src =
-          JsBarcode.Pharmacode(1234, { displayValue: true })
+          ioBarcode.Pharmacode(1234, { displayValue: true }).toDataURL()
 
         document.getElementById('options').src =
-          JsBarcode.Pharmacode(1234, {
+          ioBarcode.Pharmacode(1234, {
             displayValue: true,
             backgroundColor: 'lightblue',
             lineColor: 'blue',
@@ -72,12 +72,12 @@
             quite: 50,
             height: 50,
             width: 10
-          })
+          }).toDataURL()
 
         function renderClock () {
           var date = new Date()
           document.getElementById('clock').src =
-            JsBarcode.CODE128B(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(), { displayValue: true })
+            ioBarcode.CODE128B(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(), { displayValue: true }).toDataURL()
         }
         setInterval(renderClock, 1000)
         renderClock()
