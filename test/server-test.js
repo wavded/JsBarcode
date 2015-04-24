@@ -5,6 +5,11 @@ import fs from 'fs'
 let date = new Date()
 let time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
 
+/**
+ * Currently exists an issue in node-canvas on OSX for fonts
+ * This test works good on Ubuntu 14.04
+ * https://github.com/Automattic/node-canvas/issues/548
+ */
 fs.writeFile(join(__dirname, 'server-test.html'), `
 
 <!doctype html>
