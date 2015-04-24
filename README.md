@@ -32,7 +32,7 @@ With npm:
 npm install io-barcode
 ```
 
-Or download the [minified UMD bundle](build/browser/io-barcode.min.js).
+If you are not using Node, browserify, webpack or similar npm-based systems, download the [minified UMD bundle](build/browser/io-barcode.min.js) for browsers only.
 
 ## Usage
 
@@ -50,7 +50,7 @@ Create a new barcode.  Returns a canvas element.
 	*  Pharmacode
  * `code` - the string to encode
  * `opts` - additional formatting, default options are:
- 
+
 ```js
 {
 	width:	2,
@@ -83,7 +83,7 @@ Example on the client side:
 ```js
   // If using a require system like browserify or webpack just require it
   var ioBarcode = require("io-barcode")
-  // If direct via a <script> tag ioBarcode is exposed as a global
+  // If using UMD bundle via a <script> tag, ioBarcode is exposed as a global
   var canvas = ioBarcode.CODE128B('Javascript is fun!', {
     width: 1,
     height: 25

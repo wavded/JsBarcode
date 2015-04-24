@@ -62,10 +62,10 @@ function generateBarcodeDataUri (Encoding, code, opts) {
 	}
 
 	// Encode the content
-	var binaryString = encoder.encode()
+	let binaryString = encoder.encode()
 
 	// Get the canvas context
-	var ctx	= canvas.getContext('2d')
+	let ctx	= canvas.getContext('2d')
 
 	// Set the width and height of the barcode
 	canvas.width = binaryString.length * opts.width + 2 * opts.quite
