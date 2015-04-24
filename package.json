@@ -13,11 +13,11 @@
     "Pharmacode",
     "ITF14"
   ],
-  "main": "./build/npm",
+  "main": "./build/node",
   "scripts": {
     "test": "babel-node test/server-test.js && webpack-dev-server index.js",
     "build-browser": "rm -rf build/browser && webpack modules/index.js build/browser/jsbarcode.js && NODE_ENV=production webpack modules/index.js build/browser/jsbarcode.min.js && echo \"gzipped, the global build is `gzip -c build/browser/jsbarcode.min.js | wc -c` bytes\"",
-    "build-npm": "rm -rf build/npm && babel -d build/npm ./modules",
+    "build-node": "rm -rf build/node && babel -d build/node ./modules",
     "lint": "eslint index.js encodings"
   },
   "repository": {
