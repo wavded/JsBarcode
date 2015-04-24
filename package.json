@@ -1,6 +1,6 @@
 {
   "name": "io-barcode",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Isomorphic barcode generator for Node and browsers",
   "keywords": [],
   "main": "./build/node",

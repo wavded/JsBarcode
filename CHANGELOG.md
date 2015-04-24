@@ -1,4 +1,10 @@
 
+1.0.4 / 2015-04-24
+==================
+
+  * missing commits from release 1.0.3
+  * fix; opts formatting in readme
+
 1.0.3 / 2015-04-24
 ==================
 
