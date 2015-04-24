@@ -4,7 +4,6 @@
   "description": "Isomorphic barcode generator for Node and browsers",
   "keywords": [],
   "main": "./build/node",
-  "browser": "./build/browser/io-barcode.js",
   "scripts": {
     "prepublish": "npm run build-node",
     "test": "babel-node test/server-test.js && webpack-dev-server modules/index.js",
