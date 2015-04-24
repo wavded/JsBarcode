@@ -1,4 +1,6 @@
+import 'babel/polyfill'
 import encodings from './encodings'
+import Canvas from 'canvas-browserify'
 
 let api = {}
 
@@ -51,7 +53,7 @@ function generateBarcodeDataUri (Encoding, code, opts) {
 	/* eslint complexity:0 */
 	opts = Object.assign({}, defaults, opts)
 
-	let canvas = document.createElement('canvas')
+	let canvas = new Canvas()
 	let encoder = new Encoding(code)
 
 	// Abort if the barcode format does not support the content
