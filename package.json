@@ -1,11 +1,23 @@
 {
-  "name": "JsBarcode",
+  "name": "io-barcode",
   "version": "1.0.0",
-  "description": "Demo ---- [Barcode Generator](http://lindell.github.io/JsBarcode/)",
-  "main": "index.js",
+  "description": "Isomorphic barcode generator for Node and browsers",
+  "keywords": [
+    "barcode",
+    "generator",
+    "isomorphic",
+    "canvas",
+    "UPC",
+    "CODE128",
+    "CODE39",
+    "Pharmacode",
+    "ITF14"
+  ],
+  "main": "./build/npm",
   "scripts": {
-    "test": "babel-node test/server-test.js && webpack-dev-server",
-    "pack": "webpack",
+    "test": "babel-node test/server-test.js && webpack-dev-server index.js",
+    "build-browser": "rm -rf build/browser && webpack modules/index.js build/browser/jsbarcode.js && NODE_ENV=production webpack modules/index.js build/browser/jsbarcode.min.js && echo \"gzipped, the global build is `gzip -c build/browser/jsbarcode.min.js | wc -c` bytes\"",
+    "build-npm": "rm -rf build/npm && babel -d build/npm ./modules",
     "lint": "eslint index.js encodings"
   },
   "repository": {

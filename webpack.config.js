@@ -1,11 +1,26 @@
+'use strict'
+let webpack = require('webpack')
+const env = process.env.NODE_ENV || 'development'
+
+let plugins = [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': env
+  })
+]
+
+if (env === 'production') {
+  plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    })
+  )
+}
+
 module.exports = {
-  devtool: 'inline-source-map',
-  entry: {
-    app: './index.js'
-  },
+  devtool: env === 'development' && 'inline-source-map',
   output: {
-    path: __dirname,
-    filename: 'dist/browser.js',
     library: 'JsBarcode',
     libraryTarget: 'umd'
   },
@@ -16,6 +31,7 @@ module.exports = {
       loader: 'babel-loader'
     }]
   },
+  plugins: plugins,
   devServer: {
     contentBase: './test',
     info: true,
