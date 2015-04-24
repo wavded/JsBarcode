@@ -1,3 +1,5 @@
+import repeat from 'core-js/library/fn/string/repeat'
+
 class Pharmacode {
   constructor (code) {
     this.code = Number(code)
@@ -30,7 +32,7 @@ class Pharmacode {
       nextState = state
     }
     else {
-      generated = '001'.repeat(nZeros - (state ? 1 : 0))
+      generated = repeat('001', nZeros - (state ? 1 : 0))
       generated += '00111'
     }
     return this.encodeBinary(code.substr(0, code.length - nZeros - 1), nextState) + generated

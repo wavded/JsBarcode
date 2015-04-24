@@ -1,5 +1,7 @@
 'use strict';
 
+var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -7,6 +9,10 @@ var _createClass = (function () { function defineProperties(target, props) { for
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+
+var _repeat = require('core-js/library/fn/string/repeat');
+
+var _repeat2 = _interopRequireWildcard(_repeat);
 
 var Pharmacode = (function () {
   function Pharmacode(code) {
@@ -46,7 +52,7 @@ var Pharmacode = (function () {
         generated = state ? '001' : '00111';
         nextState = state;
       } else {
-        generated = '001'.repeat(nZeros - (state ? 1 : 0));
+        generated = _repeat2['default']('001', nZeros - (state ? 1 : 0));
         generated += '00111';
       }
       return this.encodeBinary(code.substr(0, code.length - nZeros - 1), nextState) + generated;

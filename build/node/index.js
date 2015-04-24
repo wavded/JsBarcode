@@ -6,7 +6,9 @@ Object.defineProperty(exports, '__esModule', {
 	value: true
 });
 
-require('babel/polyfill');
+var _assign = require('core-js/library/fn/object/assign');
+
+var _assign2 = _interopRequireWildcard(_assign);
 
 var _encodings = require('./encodings');
 
@@ -74,7 +76,7 @@ function _drawBarcodeText(text, canvas, opts) {
 
 function generateBarcodeDataUri(Encoding, code, opts) {
 	/* eslint complexity:0 */
-	opts = Object.assign({}, defaults, opts);
+	opts = _assign2['default']({}, defaults, opts);
 
 	var canvas = new _Canvas2['default']();
 	var encoder = new Encoding(code);

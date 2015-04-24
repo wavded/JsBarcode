@@ -1,4 +1,4 @@
-import 'babel/polyfill'
+import assign from 'core-js/library/fn/object/assign'
 import encodings from './encodings'
 import Canvas from 'canvas-browserify'
 
@@ -51,7 +51,7 @@ function _drawBarcodeText (text, canvas, opts) {
 
 function generateBarcodeDataUri (Encoding, code, opts) {
 	/* eslint complexity:0 */
-	opts = Object.assign({}, defaults, opts)
+	opts = assign({}, defaults, opts)
 
 	let canvas = new Canvas()
 	let encoder = new Encoding(code)
