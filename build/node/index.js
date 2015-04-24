@@ -120,7 +120,6 @@ function generateBarcodeDataUri(Encoding, code, opts) {
 		_drawBarcodeText(code, canvas, opts);
 	}
 
-	// Grab the dataUri from the canvas
-	return canvas.toDataURL('image/png');
+	return canvas;
 }
 module.exports = exports['default'];
