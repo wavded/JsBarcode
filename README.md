@@ -2,7 +2,7 @@
 
 **io-barcode** is a simple way to create different types of 1d barcodes.
 
-This started as a fork of the [Johan Lindell's JsBarcode][1] project that adds the following functionality:
+This started as a fork of the [Johan Lindell's JsBarcode][1] project. It adds the following functionality:
 
 1. Isomorphic barcode generation on client and server.
 2. Node support through `node-canvas`.
@@ -95,5 +95,9 @@ Example on the client side:
   img.src = canvas.toDataURL('image/png')
   document.body.appendChild(img)
 ```
+
+## Running tests
+
+Run `npm test` and visit [http://localhost:3000](http://localhost:3000) in your favorite browser.
 
 [1]: https://github.com/lindell/JsBarcode
