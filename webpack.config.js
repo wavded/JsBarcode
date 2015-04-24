@@ -5,7 +5,7 @@ module.exports = {
   },
   output: {
     path: __dirname,
-    filename: 'bundle.js',
+    filename: 'dist/browser.js',
     library: 'JsBarcode',
     libraryTarget: 'umd'
   },

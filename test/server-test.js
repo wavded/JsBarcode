@@ -2,6 +2,9 @@ import JsBarcode from '../'
 import { join } from 'path'
 import fs from 'fs'
 
+let date = new Date()
+let time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+
 fs.writeFile(join(__dirname, 'server-test.html'), `
 
 <!doctype html>
@@ -12,6 +15,24 @@ fs.writeFile(join(__dirname, 'server-test.html'), `
   </head>
   <body>
     <a href="/">Client Render Test</a>
+
+    <h1>Example: Barcode Clock</h1>
+    <img src="${JsBarcode.CODE128B(time, { displayValue: true })}" />
+
+    <h1>Example: Options</h1>
+    <img src="
+      ${JsBarcode.Pharmacode(1234, {
+        displayValue: true,
+        backgroundColor: 'lightblue',
+        lineColor: 'blue',
+        textAlign: 'right',
+        font: 'Arial',
+        fontSize: 14,
+        quite: 50,
+        height: 50,
+        width: 10
+      })}
+    " />
 
     <h1>Encodings</h1>
 
@@ -38,21 +59,6 @@ fs.writeFile(join(__dirname, 'server-test.html'), `
 
     <h2>Pharmacode</h2>
     <img src="${JsBarcode.Pharmacode(1234, { displayValue: true })}" />
-
-    <h1>Options</h1>
-    <img src="
-      ${JsBarcode.Pharmacode(1234, {
-        displayValue: true,
-        backgroundColor: 'lightblue',
-        lineColor: 'blue',
-        textAlign: 'right',
-        font: 'Arial',
-        fontSize: 14,
-        quite: 50,
-        height: 50,
-        width: 10
-      })}
-    " />
 
   </body>
 </html>
