@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wavded/JsBarcode.git"
+    "url": "git+https://github.com/wavded/io-barcode.git"
   },
   "author": "Marc Harter <wavded@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wavded/JsBarcode/issues"
+    "url": "https://github.com/wavded/io-barcode/issues"
   },
-  "homepage": "https://github.com/wavded/JsBarcode#readme",
+  "homepage": "https://github.com/wavded/io-barcode#readme",
   "devDependencies": {
     "babel": "^5.1.11",
     "babel-loader": "^5.0.0",
