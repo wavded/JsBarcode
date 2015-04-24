@@ -1,6 +1,7 @@
-# io-barcode
+[![npm package](https://img.shields.io/npm/v/io-barcode.svg?style=flat-square)](https://www.npmjs.org/package/io-barcode)
+[![dependency status](https://img.shields.io/david/wavded/io-barcode.svg?style=flat-square)](https://david-dm.org/wavded/io-barcode)
 
-**io-barcode** is a simple way to create different types of 1d barcodes.
+**io-barcode** is a simple way to create different types of barcodes on server or client.
 
 This started as a fork of the [Johan Lindell's JsBarcode][1] project. It adds the following functionality:
 
