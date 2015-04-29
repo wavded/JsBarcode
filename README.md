@@ -15,6 +15,8 @@ This started as a fork of the [Johan Lindell's JsBarcode][1] project. It adds th
 ## Demo and examples
 [Barcode Generator](http://lindell.github.io/JsBarcode/)
 
+![Samples](screenshot.png)
+
 #### Supported barcodes
 *  CODE128 (B or C)
 *  EAN (13)
