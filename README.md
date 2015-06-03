@@ -8,14 +8,13 @@ This started as a fork of the [Johan Lindell's JsBarcode][1] project. It adds th
 1. Isomorphic barcode generation on client and server.
 2. Node support through `node-canvas`.
 3. Packaged with UMD support on client side.
-4. Modular design
+4. Modular design.
 5. Returns a canvas element.
-6. Removed direct jQuery integration
+6. Removed direct jQuery integration.
+7. Custom label support (Instead of the encoded data string).
 
 ## Demo and examples
 [Barcode Generator](http://lindell.github.io/JsBarcode/)
-
-![Samples](screenshot.png)
 
 #### Supported barcodes
 *  CODE128 (B or C)
@@ -34,7 +33,7 @@ With npm:
 npm install io-barcode
 ```
 
-If you are not using Node, browserify, webpack or similar npm-based systems, download the [minified UMD bundle](build/browser/io-barcode.min.js) for browsers only.
+Or download the [minified UMD bundle](build/browser/io-barcode.min.js).
 
 ## Usage
 
@@ -42,28 +41,29 @@ If you are not using Node, browserify, webpack or similar npm-based systems, dow
 Create a new barcode.  Returns a canvas element.
 
  * `TYPE` - the type of barcode, can be:
-	*  CODE128B
-	*  CODE128C
-	*  EAN
-	*  UPC
-	*  CODE39
-	*  ITF
-	*  ITF14
-	*  Pharmacode
+  *  CODE128B
+  *  CODE128C
+  *  EAN
+  *  UPC
+  *  CODE39
+  *  ITF
+  *  ITF14
+  *  Pharmacode
  * `code` - the string to encode
  * `opts` - additional formatting, default options are:
-
+ 
 ```js
 {
-	width:	2,
-	height:	100,
-	quite: 10,
-	displayValue: false,
-	font: 'monospace',
-	textAlign: 'center',
-	fontSize: 12,
-	backgroundColor: '',
-	lineColor: "#000"
+  width:  2,
+  height: 100,
+  quite: 10,
+  displayValue: false, // Will display the encoded data as a label, or 'customLabel' if not null
+  font: 'monospace',
+  textAlign: 'center',
+  fontSize: 12,
+  backgroundColor: '',
+  lineColor: "#000",
+  customLabel:null, // Will be displayed if displayValue is set to true
 }
 ```
 
@@ -85,7 +85,7 @@ Example on the client side:
 ```js
   // If using a require system like browserify or webpack just require it
   var ioBarcode = require("io-barcode")
-  // If using UMD bundle via a <script> tag, ioBarcode is exposed as a global
+  // If direct via a <script> tag ioBarcode is exposed as a global
   var canvas = ioBarcode.CODE128B('Javascript is fun!', {
     width: 1,
     height: 25

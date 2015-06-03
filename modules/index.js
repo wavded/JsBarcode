@@ -94,7 +94,7 @@ function generateBarcodeDataUri (Encoding, code, opts) {
 
 	// Add value below if enabled
 	if (opts.displayValue) {
-		_drawBarcodeText(code, canvas, opts)
+		_drawBarcodeText(opts.customLabel || code, canvas, opts)
 	}
 
 	return canvas
