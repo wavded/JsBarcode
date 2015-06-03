@@ -8,9 +8,10 @@ This started as a fork of the [Johan Lindell's JsBarcode][1] project. It adds th
 1. Isomorphic barcode generation on client and server.
 2. Node support through `node-canvas`.
 3. Packaged with UMD support on client side.
-4. Modular design
+4. Modular design.
 5. Returns a canvas element.
-6. Removed direct jQuery integration
+6. Removed direct jQuery integration.
+7. Custom label support (Instead of the encoded data string).
 
 ## Demo and examples
 [Barcode Generator](http://lindell.github.io/JsBarcode/)
@@ -55,15 +56,16 @@ Create a new barcode.  Returns a canvas element.
 
 ```js
 {
-	width:	2,
-	height:	100,
-	quite: 10,
-	displayValue: false,
-	font: 'monospace',
-	textAlign: 'center',
-	fontSize: 12,
-	backgroundColor: '',
-	lineColor: "#000"
+  width:  2,
+  height: 100,
+  quite: 10,
+  displayValue: false, // Will display the encoded data as a label, or 'customLabel' if not null
+  font: 'monospace',
+  textAlign: 'center',
+  fontSize: 12,
+  backgroundColor: '',
+  lineColor: "#000",
+  customLabel:null, // Will be displayed if displayValue is set to true
 }
 ```
 
