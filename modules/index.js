@@ -4,13 +4,6 @@ import Canvas from 'canvas-browserify'
 
 let api = {}
 
-/* eslint no-loop-func:0 */
-for (let name in encodings) {
-	api[name] = (...args) => generateBarcodeDataUri(encodings[name], ...args)
-}
-
-export default api
-
 const defaults = {
 	width: 2,
 	height: 100,
@@ -48,6 +41,7 @@ function _drawBarcodeText (text, canvas, opts) {
 
 	ctx.fillText(text, x, y)
 }
+
 
 function generateBarcodeDataUri (Encoding, code, opts) {
 	/* eslint complexity:0 */
@@ -99,3 +93,10 @@ function generateBarcodeDataUri (Encoding, code, opts) {
 
 	return canvas
 }
+
+/* eslint no-loop-func:0 */
+for (let name in encodings) {
+	api[name] = (...args) => generateBarcodeDataUri(encodings[name], ...args)
+}
+
+export default api

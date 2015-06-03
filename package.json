@@ -9,7 +9,7 @@
     "test": "babel-node test/server-test.js && webpack-dev-server modules/index.js",
     "build-browser": "rm -rf build/browser && webpack modules/index.js build/browser/io-barcode.js && NODE_ENV=production webpack modules/index.js build/browser/io-barcode.min.js && echo \"gzipped, the global build is `gzip -c build/browser/io-barcode.min.js | wc -c` bytes\"",
     "build-node": "rm -rf build/node && babel -d build/node ./modules",
-    "lint": "eslint **/*.js"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "devDependencies": {
     "babel": "^5.1.11",
     "babel-loader": "^5.0.0",
-    "eslint": "^0.19.0",
+    "eslint": "^0.22.1",
     "webpack": "^1.8.9",
     "webpack-dev-server": "^1.8.2"
   },

@@ -17,9 +17,9 @@ class ITF14 extends ITF {
   }
 
   checksum() {
-    var result = 0
+    let result = 0
 
-    for (var i = 0; i < 13; i++) {
+    for (let i = 0; i < 13; i++) {
       result += Number(this.code[i]) * (3 - (i % 2) * 2)
     }
 

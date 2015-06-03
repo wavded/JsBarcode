@@ -58,9 +58,9 @@ class CODE39 {
   encode() {
     let string = this.code.toUpperCase()
 
-    var result = ''
+    let result = ''
     result += '1000101110111010'
-    for (var i = 0; i < string.length; i++) {
+    for (let i = 0; i < string.length; i++) {
       result += this.encodingByChar(string[i]) + '0'
     }
     result += '1000101110111010'
@@ -68,7 +68,7 @@ class CODE39 {
   }
 
   encodingByChar (char) {
-    for (var i = 0; i < code39.length; i++) {
+    for (let i = 0; i < code39.length; i++) {
       if (code39[i][1] === char) {
         return code39[i][2]
       }

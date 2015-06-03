@@ -122,7 +122,7 @@ class CODE128 {
     return validRe.test(this.code)
   }
 
-  encode(encodeFn, startCode, checksumFn) {
+  encode() {
     let result = ''
 
     //Add the start bits

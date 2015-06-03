@@ -54,7 +54,7 @@ class ITF {
     let number2Struct = digitStructure[twoNumbers[1]]
 
     // Take every second bit and add to the result
-    for (var i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
       result += (number1Struct[i] === '1') ? '111' : '1'
       result += (number2Struct[i] === '1') ? '000' : '0'
     }
