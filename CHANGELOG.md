@@ -1,4 +1,10 @@
 
+1.1.0 / 2015-07-06
+==================
+
+  * Add custom label support [orzarchi]
+  * Switched to babel-runtime
+
 1.0.4 / 2015-04-24
 ==================
 
