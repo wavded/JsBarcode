@@ -1,51 +1,51 @@
 'use strict';
 
-var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _EAN = require('./ean');
+var _ean = require('./ean');
 
-var _EAN2 = _interopRequireWildcard(_EAN);
+var _ean2 = _interopRequireDefault(_ean);
 
-var _UPC = require('./upc');
+var _upc = require('./upc');
 
-var _UPC2 = _interopRequireWildcard(_UPC);
+var _upc2 = _interopRequireDefault(_upc);
 
-var _ITF = require('./itf');
+var _itf = require('./itf');
 
-var _ITF2 = _interopRequireWildcard(_ITF);
+var _itf2 = _interopRequireDefault(_itf);
 
-var _ITF14 = require('./itf14');
+var _itf14 = require('./itf14');
 
-var _ITF142 = _interopRequireWildcard(_ITF14);
+var _itf142 = _interopRequireDefault(_itf14);
 
-var _CODE39 = require('./code39');
+var _code39 = require('./code39');
 
-var _CODE392 = _interopRequireWildcard(_CODE39);
+var _code392 = _interopRequireDefault(_code39);
 
-var _CODE128B = require('./code128b');
+var _code128b = require('./code128b');
 
-var _CODE128B2 = _interopRequireWildcard(_CODE128B);
+var _code128b2 = _interopRequireDefault(_code128b);
 
-var _CODE128C = require('./code128c');
+var _code128c = require('./code128c');
 
-var _CODE128C2 = _interopRequireWildcard(_CODE128C);
+var _code128c2 = _interopRequireDefault(_code128c);
 
-var _Pharmacode = require('./pharmacode');
+var _pharmacode = require('./pharmacode');
 
-var _Pharmacode2 = _interopRequireWildcard(_Pharmacode);
+var _pharmacode2 = _interopRequireDefault(_pharmacode);
 
 exports['default'] = {
-  EAN: _EAN2['default'],
-  UPC: _UPC2['default'],
-  ITF: _ITF2['default'],
-  ITF14: _ITF142['default'],
-  CODE39: _CODE392['default'],
-  CODE128B: _CODE128B2['default'],
-  CODE128C: _CODE128C2['default'],
-  Pharmacode: _Pharmacode2['default']
+  EAN: _ean2['default'],
+  UPC: _upc2['default'],
+  ITF: _itf2['default'],
+  ITF14: _itf142['default'],
+  CODE39: _code392['default'],
+  CODE128B: _code128b2['default'],
+  CODE128C: _code128c2['default'],
+  Pharmacode: _pharmacode2['default']
 };
 module.exports = exports['default'];

@@ -1,41 +1,22 @@
 'use strict';
 
-var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+var _Object$assign = require('babel-runtime/core-js/object/assign')['default'];
+
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
 Object.defineProperty(exports, '__esModule', {
 	value: true
 });
 
-var _assign = require('core-js/library/fn/object/assign');
-
-var _assign2 = _interopRequireWildcard(_assign);
-
 var _encodings = require('./encodings');
 
-var _encodings2 = _interopRequireWildcard(_encodings);
+var _encodings2 = _interopRequireDefault(_encodings);
 
-var _Canvas = require('canvas-browserify');
+var _canvasBrowserify = require('canvas-browserify');
 
-var _Canvas2 = _interopRequireWildcard(_Canvas);
+var _canvasBrowserify2 = _interopRequireDefault(_canvasBrowserify);
 
 var api = {};
-
-var _loop = function (_name) {
-	api[_name] = function () {
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
-
-		return generateBarcodeDataUri.apply(undefined, [_encodings2['default'][_name]].concat(args));
-	};
-};
-
-/* eslint no-loop-func:0 */
-for (var _name in _encodings2['default']) {
-	_loop(_name);
-}
-
-exports['default'] = api;
 
 var defaults = {
 	width: 2,
@@ -56,7 +37,7 @@ function _drawBarcodeText(text, canvas, opts) {
 
 	y = opts.height;
 
-	ctx.font = '' + opts.fontSize + 'px ' + opts.font;
+	ctx.font = opts.fontSize + 'px ' + opts.font;
 	ctx.textBaseline = 'bottom';
 	ctx.textBaseline = 'top';
 
@@ -76,9 +57,9 @@ function _drawBarcodeText(text, canvas, opts) {
 
 function generateBarcodeDataUri(Encoding, code, opts) {
 	/* eslint complexity:0 */
-	opts = _assign2['default']({}, defaults, opts);
+	opts = _Object$assign({}, defaults, opts);
 
-	var canvas = new _Canvas2['default']();
+	var canvas = new _canvasBrowserify2['default']();
 	var encoder = new Encoding(code);
 
 	// Abort if the barcode format does not support the content
@@ -119,9 +100,26 @@ function generateBarcodeDataUri(Encoding, code, opts) {
 
 	// Add value below if enabled
 	if (opts.displayValue) {
-		_drawBarcodeText(code, canvas, opts);
+		_drawBarcodeText(opts.customLabel || code, canvas, opts);
 	}
 
 	return canvas;
 }
+
+var _loop = function (_name) {
+	api[_name] = function () {
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return generateBarcodeDataUri.apply(undefined, [_encodings2['default'][_name]].concat(args));
+	};
+};
+
+/* eslint no-loop-func:0 */
+for (var _name in _encodings2['default']) {
+	_loop(_name);
+}
+
+exports['default'] = api;
 module.exports = exports['default'];

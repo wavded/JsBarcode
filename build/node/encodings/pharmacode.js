@@ -1,18 +1,18 @@
 'use strict';
 
-var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+var _createClass = require('babel-runtime/helpers/create-class')['default'];
 
-var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _repeat = require('core-js/library/fn/string/repeat');
+var _coreJsLibraryFnStringRepeat = require('core-js/library/fn/string/repeat');
 
-var _repeat2 = _interopRequireWildcard(_repeat);
+var _coreJsLibraryFnStringRepeat2 = _interopRequireDefault(_coreJsLibraryFnStringRepeat);
 
 var Pharmacode = (function () {
   function Pharmacode(code) {
@@ -42,9 +42,9 @@ var Pharmacode = (function () {
   }, {
     key: 'encodeBinary',
     value: function encodeBinary(code, state) {
-      if (code.length === 0) {
-        return '';
-      }var generated = undefined;
+      if (code.length === 0) return '';
+
+      var generated = undefined;
       var nextState = false;
       var nZeros = this._calcZeros(code);
 
@@ -52,7 +52,7 @@ var Pharmacode = (function () {
         generated = state ? '001' : '00111';
         nextState = state;
       } else {
-        generated = _repeat2['default']('001', nZeros - (state ? 1 : 0));
+        generated = (0, _coreJsLibraryFnStringRepeat2['default'])('001', nZeros - (state ? 1 : 0));
         generated += '00111';
       }
       return this.encodeBinary(code.substr(0, code.length - nZeros - 1), nextState) + generated;
