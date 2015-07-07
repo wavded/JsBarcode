@@ -8,7 +8,7 @@
     "prepublish": "npm run build-node",
     "test": "babel-node test/server-test.js && webpack-dev-server modules/index.js",
     "build-browser": "rm -rf build/browser && webpack modules/index.js build/browser/io-barcode.js && NODE_ENV=production webpack modules/index.js build/browser/io-barcode.min.js && echo \"gzipped, the global build is `gzip -c build/browser/io-barcode.min.js | wc -c` bytes\"",
-    "build-node": "rm -rf build/node && babel -d build/node ./modules",
+    "build-node": "rm -rf build/node && babel -d build/node --optional runtime ./modules",
     "lint": "eslint ."
   },
   "repository": {
@@ -29,6 +29,7 @@
     "webpack-dev-server": "^1.8.2"
   },
   "dependencies": {
+    "babel-runtime": "^5.6.15",
     "canvas-browserify": "^1.1.1",
     "core-js": "^0.9.0"
   }
