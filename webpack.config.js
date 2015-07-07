@@ -34,9 +34,6 @@ module.exports = {
   plugins: plugins,
   devServer: {
     contentBase: './test',
-    info: true,
-    hot: true,
-    inline: true,
     port: 3000
   }
 }
