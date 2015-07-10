@@ -11,6 +11,7 @@ const defaults = {
 	font: 'monospace',
 	textAlign: 'center',
 	fontSize: 12,
+	fontWeight: 'normal',
 	backgroundColor: '',
 	lineColor: '#000'
 }
@@ -21,7 +22,7 @@ function _drawBarcodeText (text, canvas, opts) {
 
 	y = opts.height
 
-	ctx.font = `${opts.fontSize}px ${opts.font}`
+	ctx.font = `${opts.fontWeight} ${opts.fontSize}px ${opts.font}`
 	ctx.textBaseline = 'bottom'
 	ctx.textBaseline = 'top'
 

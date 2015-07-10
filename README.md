@@ -63,6 +63,7 @@ Create a new barcode.  Returns a canvas element.
   font: 'monospace',
   textAlign: 'center',
   fontSize: 12,
+  fontWeight: 'bold',
   backgroundColor: '',
   lineColor: "#000",
   customLabel:null, // Will be displayed if displayValue is set to true
