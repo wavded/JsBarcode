@@ -33,6 +33,7 @@ fs.writeFile(join(__dirname, 'server-test.html'), `
         lineColor: 'blue',
         textAlign: 'right',
         font: 'Arial',
+        fontWeight: 'bold',
         fontSize: 14,
         quite: 50,
         height: 50,
