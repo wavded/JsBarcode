@@ -95,23 +95,20 @@ const code128b = {
    '{': [ '11110110110', 91 ],
    '|': [ '10101111000', 92 ],
    '}': [ '10100011110', 93 ],
-   '~': [ '10001011110', 94 ]
+   '~': [ '10001011110', 94 ],
+   [String.fromCharCode(127)]: [ '10111101000', 95 ],
+   [String.fromCharCode(128)]: [ '10111100010', 96 ],
+   [String.fromCharCode(129)]: [ '11110101000', 97 ],
+   [String.fromCharCode(130)]: [ '11110100010', 98 ],
+   [String.fromCharCode(131)]: [ '10111011110', 99 ],
+   [String.fromCharCode(132)]: [ '10111101110', 100 ],
+   [String.fromCharCode(133)]: [ '11101011110', 101 ],
+   [String.fromCharCode(134)]: [ '11110101110', 102 ],
+   //Start codes
+   [String.fromCharCode(135)]: [ '11010000100', 103 ],
+   [String.fromCharCode(136)]: [ '11010010000', 104 ],
+   [String.fromCharCode(137)]: [ '11010011100', 105 ]
 }
-
-// These are not part of the object constructor because they have dynamically
-// generated keys.
-code128b[String.fromCharCode(127)] = [ '10111101000', 95 ]
-code128b[String.fromCharCode(128)] = [ '10111100010', 96 ]
-code128b[String.fromCharCode(129)] = [ '11110101000', 97 ]
-code128b[String.fromCharCode(130)] = [ '11110100010', 98 ]
-code128b[String.fromCharCode(131)] = [ '10111011110', 99 ]
-code128b[String.fromCharCode(132)] = [ '10111101110', 100 ]
-code128b[String.fromCharCode(133)] = [ '11101011110', 101 ]
-code128b[String.fromCharCode(134)] = [ '11110101110', 102 ]
-//Start codes
-code128b[String.fromCharCode(135)] = [ '11010000100', 103 ]
-code128b[String.fromCharCode(136)] = [ '11010010000', 104 ]
-code128b[String.fromCharCode(137)] = [ '11010011100', 105 ]
 
 const endBin = '1100011101011'
 const validRe = /^[!-~ ]+$/
