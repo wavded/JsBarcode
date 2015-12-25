@@ -1,14 +1,5 @@
 //The structure for the all digits, 1 is wide and 0 is narrow
-'use strict';
-
-var _createClass = require('babel-runtime/helpers/create-class')['default'];
-
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-var digitStructure = {
+const digitStructure = {
   0: '00110',
   1: '10001',
   2: '01001',
@@ -22,64 +13,54 @@ var digitStructure = {
 };
 
 // The start bits
-var startBin = '1010';
+const startBin = '1010';
 // The end bits
-var endBin = '11101';
+const endBin = '11101';
 
 // Regexp for a valid Inter25 code
-var validRe = /^([0-9][0-9])+$/;
+const validRe = /^([0-9][0-9])+$/;
 
-var ITF = (function () {
-  function ITF(code) {
-    _classCallCheck(this, ITF);
-
+class ITF {
+  constructor(code) {
     this.code = String(code);
   }
 
-  _createClass(ITF, [{
-    key: 'isValid',
-    value: function isValid() {
-      return validRe.test(this.code);
+  isValid() {
+    return validRe.test(this.code);
+  }
+
+  encode() {
+    // Create the variable that should be returned at the end of the function
+    let result = '';
+
+    // Always add the same start bits
+    result += startBin;
+
+    // Calculate all the digit pairs
+    for (let i = 0; i < this.code.length; i += 2) {
+      result += this.calculatePair(this.code.substr(i, 2));
     }
-  }, {
-    key: 'encode',
-    value: function encode() {
-      // Create the variable that should be returned at the end of the function
-      var result = '';
 
-      // Always add the same start bits
-      result += startBin;
+    // Always add the same end bits
+    result += endBin;
 
-      // Calculate all the digit pairs
-      for (var i = 0; i < this.code.length; i += 2) {
-        result += this.calculatePair(this.code.substr(i, 2));
-      }
+    return result;
+  }
 
-      // Always add the same end bits
-      result += endBin;
+  calculatePair(twoNumbers) {
+    let result = '';
 
-      return result;
+    let number1Struct = digitStructure[twoNumbers[0]];
+    let number2Struct = digitStructure[twoNumbers[1]];
+
+    // Take every second bit and add to the result
+    for (let i = 0; i < 5; i++) {
+      result += number1Struct[i] === '1' ? '111' : '1';
+      result += number2Struct[i] === '1' ? '000' : '0';
     }
-  }, {
-    key: 'calculatePair',
-    value: function calculatePair(twoNumbers) {
-      var result = '';
 
-      var number1Struct = digitStructure[twoNumbers[0]];
-      var number2Struct = digitStructure[twoNumbers[1]];
+    return result;
+  }
+}
 
-      // Take every second bit and add to the result
-      for (var i = 0; i < 5; i++) {
-        result += number1Struct[i] === '1' ? '111' : '1';
-        result += number2Struct[i] === '1' ? '000' : '0';
-      }
-
-      return result;
-    }
-  }]);
-
-  return ITF;
-})();
-
-exports['default'] = ITF;
-module.exports = exports['default'];
+export default ITF;
