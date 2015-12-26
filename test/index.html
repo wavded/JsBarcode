@@ -38,31 +38,31 @@
 
       <script>
         document.getElementById('upc').src =
-          ioBarcode.UPC('123456789999', { displayValue: true }).toDataURL()
+          ioBarcode.default.UPC('123456789999', { displayValue: true }).toDataURL()
 
         document.getElementById('ean').src =
-          ioBarcode.EAN('1234567890128', { displayValue: true }).toDataURL()
+          ioBarcode.default.EAN('1234567890128', { displayValue: true }).toDataURL()
 
         document.getElementById('itf').src =
-          ioBarcode.ITF('123456', { displayValue: true }).toDataURL()
+          ioBarcode.default.ITF('123456', { displayValue: true }).toDataURL()
 
         document.getElementById('itf14').src =
-          ioBarcode.ITF14('10012345000017', { displayValue: true }).toDataURL()
+          ioBarcode.default.ITF14('10012345000017', { displayValue: true }).toDataURL()
 
         document.getElementById('code39').src =
-          ioBarcode.CODE39('JSBARCODE', { displayValue: true }).toDataURL()
+          ioBarcode.default.CODE39('JSBARCODE', { displayValue: true }).toDataURL()
 
         document.getElementById('code128b').src =
-          ioBarcode.CODE128B('ioBarcode', { displayValue: true }).toDataURL()
+          ioBarcode.default.CODE128B('ioBarcode', { displayValue: true }).toDataURL()
 
         document.getElementById('code128c').src =
-          ioBarcode.CODE128C('JcB', { displayValue: true }).toDataURL()
+          ioBarcode.default.CODE128C('JcB', { displayValue: true }).toDataURL()
 
         document.getElementById('pharmacode').src =
-          ioBarcode.Pharmacode(1234, { displayValue: true }).toDataURL()
+          ioBarcode.default.Pharmacode(1234, { displayValue: true }).toDataURL()
 
         document.getElementById('options').src =
-          ioBarcode.Pharmacode(1234, {
+          ioBarcode.default.Pharmacode(1234, {
             displayValue: true,
             backgroundColor: 'lightblue',
             lineColor: 'blue',
@@ -78,7 +78,7 @@
         function renderClock () {
           var date = new Date()
           document.getElementById('clock').src =
-            ioBarcode.CODE128B(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(), { displayValue: true }).toDataURL()
+            ioBarcode.default.CODE128B(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(), { displayValue: true }).toDataURL()
         }
         setInterval(renderClock, 1000)
         renderClock()
