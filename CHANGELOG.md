@@ -1,4 +1,11 @@
 
+1.3.0 / 2016-02-03
+==================
+
+  * Updated to Babel 6
+  * Use es6 object literal extensions [toddw/isomorphic]
+  * Optimize code39 and code128
+
 1.2.0 / 2015-07-10
 ==================
 
