@@ -2,9 +2,13 @@ import ioBarcode from '../modules'
 import { join } from 'path'
 import fs from 'fs'
 
+const ioBarcode2 = require('../modules')
+
 let date = new Date()
 let time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
-let opts = { displayValue: true }
+let opts = {
+  displayValue: true
+}
 
 /**
  * Currently exists an issue in node-canvas on OSX for fonts
@@ -28,17 +32,17 @@ fs.writeFile(join(__dirname, 'server-test.html'), `
     <h1>Example: Options</h1>
     <img src="
       ${ioBarcode.Pharmacode(1234, {
-        displayValue: true,
-        backgroundColor: 'lightblue',
-        lineColor: 'blue',
-        textAlign: 'right',
-        font: 'Arial',
-        fontWeight: 'bold',
-        fontSize: 14,
-        quite: 50,
-        height: 50,
-        width: 10
-      }).toDataURL()}
+  displayValue: true,
+  backgroundColor: 'lightblue',
+  lineColor: 'blue',
+  textAlign: 'right',
+  font: 'Arial',
+  fontWeight: 'bold',
+  fontSize: 14,
+  quite: 50,
+  height: 50,
+  width: 10
+}).toDataURL()}
     " />
 
     <h1>Encodings</h1>
@@ -47,25 +51,25 @@ fs.writeFile(join(__dirname, 'server-test.html'), `
     <img src="${ioBarcode.UPC('123456789999', opts).toDataURL()}" />
 
     <h2>EAN</h2>
-    <img src="${ioBarcode.EAN('1234567890128', opts).toDataURL()}" />
+    <img src="${ioBarcode2.EAN('1234567890128', opts).toDataURL()}" />
 
     <h2>ITF</h2>
     <img src="${ioBarcode.ITF('123456', opts).toDataURL()}" />
 
     <h2>ITF14</h2>
-    <img src="${ioBarcode.ITF14('10012345000017', opts).toDataURL()}" />
+    <img src="${ioBarcode2.ITF14('10012345000017', opts).toDataURL()}" />
 
     <h2>CODE39</h2>
     <img src="${ioBarcode.CODE39('JSBARCODE', opts).toDataURL()}" />
 
     <h2>CODE128B</h2>
-    <img src="${ioBarcode.CODE128B('JsBarcode', opts).toDataURL()}" />
+    <img src="${ioBarcode2.CODE128B('JsBarcode', opts).toDataURL()}" />
 
     <h2>CODE128C</h2>
     <img src="${ioBarcode.CODE128C('JcB', opts).toDataURL()}" />
 
     <h2>Pharmacode</h2>
-    <img src="${ioBarcode.Pharmacode(1234, opts).toDataURL()}" />
+    <img src="${ioBarcode2.Pharmacode(1234, opts).toDataURL()}" />
 
   </body>
 </html>

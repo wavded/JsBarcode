@@ -1,16 +1,30 @@
 'use strict';
 
-var _inherits = require('babel-runtime/helpers/inherits')['default'];
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
-var _get = require('babel-runtime/helpers/get')['default'];
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _createClass = require('babel-runtime/helpers/create-class')['default'];
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+var _createClass2 = require('babel-runtime/helpers/createClass');
 
-Object.defineProperty(exports, '__esModule', {
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = require('babel-runtime/helpers/get');
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -18,25 +32,28 @@ var _itf = require('./itf');
 
 var _itf2 = _interopRequireDefault(_itf);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var validRe = /^[0-9]{13,14}$/;
 
-var ITF14 = (function (_ITF) {
-  function ITF14(code) {
-    _classCallCheck(this, ITF14);
+var ITF14 = function (_ITF) {
+  (0, _inherits3.default)(ITF14, _ITF);
 
-    _get(Object.getPrototypeOf(ITF14.prototype), 'constructor', this).call(this, code);
+  function ITF14(code) {
+    (0, _classCallCheck3.default)(this, ITF14);
+
+    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(ITF14).call(this, code));
 
     if (code.length === 13) {
-      this.code += this.checksum();
+      _this.code += _this.checksum();
     }
+    return _this;
   }
 
-  _inherits(ITF14, _ITF);
-
-  _createClass(ITF14, [{
+  (0, _createClass3.default)(ITF14, [{
     key: 'isValid',
     value: function isValid() {
-      return _get(Object.getPrototypeOf(ITF14.prototype), 'isValid', this).call(this) && validRe.test(this.code) && Number(this.code[13]) === this.checksum();
+      return (0, _get3.default)((0, _getPrototypeOf2.default)(ITF14.prototype), 'isValid', this).call(this) && validRe.test(this.code) && Number(this.code[13]) === this.checksum();
     }
   }, {
     key: 'checksum',
@@ -50,9 +67,7 @@ var ITF14 = (function (_ITF) {
       return 10 - result % 10;
     }
   }]);
-
   return ITF14;
-})(_itf2['default']);
+}(_itf2.default);
 
-exports['default'] = ITF14;
-module.exports = exports['default'];
+exports.default = ITF14;

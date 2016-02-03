@@ -1,13 +1,20 @@
-// The L (left) type of encoding
 'use strict';
 
-var _createClass = require('babel-runtime/helpers/create-class')['default'];
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-Object.defineProperty(exports, '__esModule', {
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// The L (left) type of encoding
 var Lbinary = {
   0: '0001101',
   1: '0011001',
@@ -72,14 +79,14 @@ var endBin = '101';
 // The middle bits
 var middleBin = '01010';
 
-var EAN = (function () {
+var EAN = function () {
   function EAN(code) {
-    _classCallCheck(this, EAN);
+    (0, _classCallCheck3.default)(this, EAN);
 
     this.code = String(code);
   }
 
-  _createClass(EAN, [{
+  (0, _createClass3.default)(EAN, [{
     key: 'isValid',
     value: function isValid() {
       return validRe.test(this.code) && Number(this.code[12]) === this.checksum();
@@ -98,11 +105,12 @@ var EAN = (function () {
 
       return (10 - result % 10) % 10;
     }
-  }, {
-    key: 'encode',
 
     // Create the binary representation of the EAN code
     // number needs to be a string
+
+  }, {
+    key: 'encode',
     value: function encode() {
       // Create the return variable
       var result = '';
@@ -133,10 +141,11 @@ var EAN = (function () {
 
       return result;
     }
-  }, {
-    key: 'encodeStruct',
 
     // Convert a number array to the representing
+
+  }, {
+    key: 'encodeStruct',
     value: function encodeStruct(codePart, struct) {
       // Create the variable that should be returned at the end of the function
       var result = '';
@@ -155,9 +164,7 @@ var EAN = (function () {
       return result;
     }
   }]);
-
   return EAN;
-})();
+}();
 
-exports['default'] = EAN;
-module.exports = exports['default'];
+exports.default = EAN;

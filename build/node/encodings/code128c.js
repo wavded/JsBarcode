@@ -1,40 +1,58 @@
 'use strict';
 
-var _inherits = require('babel-runtime/helpers/inherits')['default'];
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
-var _get = require('babel-runtime/helpers/get')['default'];
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _createClass = require('babel-runtime/helpers/create-class')['default'];
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+var _createClass2 = require('babel-runtime/helpers/createClass');
 
-Object.defineProperty(exports, '__esModule', {
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = require('babel-runtime/helpers/get');
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _code128 = require('./code128');
+var _code = require('./code128');
 
-var _code1282 = _interopRequireDefault(_code128);
+var _code2 = _interopRequireDefault(_code);
 
-var CODE128C = (function (_CODE128) {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var CODE128C = function (_CODE) {
+  (0, _inherits3.default)(CODE128C, _CODE);
+
   function CODE128C(code) {
-    _classCallCheck(this, CODE128C);
+    (0, _classCallCheck3.default)(this, CODE128C);
 
-    _get(Object.getPrototypeOf(CODE128C.prototype), 'constructor', this).call(this, code);
-    this.code = this.code.replace(/ /g, '');
-    this.startCode = 105;
+    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(CODE128C).call(this, code));
+
+    _this.code = _this.code.replace(/ /g, '');
+    _this.startCode = 105;
+    return _this;
   }
 
-  _inherits(CODE128C, _CODE128);
-
-  _createClass(CODE128C, [{
+  (0, _createClass3.default)(CODE128C, [{
     key: 'encodeClass',
     value: function encodeClass() {
       var result = '';
       for (var i = 0; i < this.code.length; i += 2) {
-        result += _get(Object.getPrototypeOf(CODE128C.prototype), 'encodingById', this).call(this, Number(this.code.substr(i, 2)));
+        result += (0, _get3.default)((0, _getPrototypeOf2.default)(CODE128C.prototype), 'encodingById', this).call(this, Number(this.code.substr(i, 2)));
       }
       return result;
     }
@@ -50,9 +68,7 @@ var CODE128C = (function (_CODE128) {
       return (sum + this.startCode) % 103;
     }
   }]);
-
   return CODE128C;
-})(_code1282['default']);
+}(_code2.default);
 
-exports['default'] = CODE128C;
-module.exports = exports['default'];
+exports.default = CODE128C;
